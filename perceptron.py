@@ -5,7 +5,6 @@ from random import *
 
 fig, ax = plt.subplots(figsize=(10, 10), dpi=100)
 plt.grid()
-# plt.figure(0, figsize=(10, 10), dpi=10)
 labels = np.array([1, -1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1])
 features = np.array([[0, 1],
                      [5, 6],
@@ -23,9 +22,6 @@ features = np.array([[0, 1],
                     [9, 2],
                     [-13, 4],
                     [-20, -16]])
-# norm = ax.scatter(features[:, 0], features[:, 1], c=labels, s=120).norm
-
-# random_data = [[randint(-15, 15), randint(-15, 15)] for i in range(10)]
 
 def train(features_matrix=features):
     w1, w2, b = 0, 0, 0
@@ -55,16 +51,9 @@ def train(features_matrix=features):
     v = lambda z: (-weight_vector[2] - weight_vector[0]*x)/weight_vector[1]
     ax.plot(x, v(x), linewidth=2)
     ax.scatter(features_matrix[:, 0], features_matrix[:, 1],  c=labels, cmap='cividis')
-    # ax.scatter(weight_vector[0][0], weight_vector[0][1], weight_vector[0][2])
     return 0
 
 
-# def classifier(datapoints: list | tuple, features_matrix=features, labels_vector=labels, k=2, show_graph=True):
 
 print(train(features))
-# classifier([[3, 3]])
-# classifier([[-2, -4]])
-# classifier([[-8, 0]])
-# classifier([[8, 9]])
-# classifier(random_data)
 plt.show()
